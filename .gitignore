@@ -144,6 +144,12 @@ ENV/
 env.bak/
 venv.bak/
 
+# Entorno virtual específico del proyecto
+backend/env/
+
+# Entorno virtual específico del proyecto
+backend/env/
+
 # Spyder project settings
 .spyderproject
 .spyproject
