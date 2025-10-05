@@ -1,6 +1,6 @@
 from django.db import models
 
-class Plan(models.Model):
+class PlanModel(models.Model):
     class Type(models.TextChoices):
         TEST = 'TE', 'Prueba Gratis'
         MONTHLY = 'MO', 'Mensual'

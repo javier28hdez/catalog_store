@@ -144,6 +144,9 @@ ENV/
 env.bak/
 venv.bak/
 
+#Carpeta media de las fotos de pruebas
+media/
+
 # Entorno virtual específico del proyecto
 backend/env/
 
