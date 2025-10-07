@@ -7,7 +7,7 @@ class CategoryBusinessModel(models.Model):
         on_delete=models.CASCADE,
     )
     name = models.CharField(max_length=100, unique=True, null=False, blank=False)
-    description = models.TextField(unique=False, null=False, blank=False)
+    description = models.TextField(unique=False, null=False, blank=False) #puede que este de mas
 
     def __str__(self):
         return self.name
