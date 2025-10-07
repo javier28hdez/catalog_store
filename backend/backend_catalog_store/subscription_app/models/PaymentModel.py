@@ -7,9 +7,9 @@ class PaymentModel(models.Model):
         ERROR = 'ERR', "Error en el pago"
 
     class TypePaymentMethod(models.TextChoices):
-        TRANSFER = 'TRA' "Transferencia"
-        CASH = 'CAS' "Efectivo"
-        TRANSFER_FOREIGN = 'TRF' "Transferencia desde el extranjero"
+        TRANSFER = 'TRA', "Transferencia"
+        CASH = 'CAS', "Efectivo"
+        TRANSFER_FOREIGN = 'TRF', "Transferencia desde el extranjero"
 
     id_payment = models.AutoField(primary_key=True, unique=True)
     status = models.CharField(max_length=3, choices=TypeStatus.choices) 

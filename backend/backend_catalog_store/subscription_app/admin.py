@@ -1,5 +1,7 @@
 from django.contrib import admin
-from .models import PlanModel, PaymentModel, SubscriptionModel
+from .models.PaymentModel import PaymentModel
+from .models.PlanModel import PlanModel
+from .models.SubscriptionModel import SubscriptionModel
 
 # Register your models here.
 admin.site.register(PlanModel)
