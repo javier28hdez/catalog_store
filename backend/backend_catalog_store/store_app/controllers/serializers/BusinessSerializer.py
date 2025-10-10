@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from store_app.models.BusinessModel import BusinessModel
+from store_app.controllers.serializers.CategoryBusinessSerializer import CategoryBusinessSerializer
 
 class BusinessSerializer(serializers.ModelSerializer):
     class Meta:
