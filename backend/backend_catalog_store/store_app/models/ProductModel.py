@@ -20,6 +20,7 @@ class ProductModel(models.Model):
     id_category_product = models.ForeignKey(
         "CategoryProductModel",
         on_delete=models.CASCADE,
+        related_name='products'
     )
     name = models.CharField(max_length=150, unique=True, null=False, blank=False)
     description = models.TextField(unique=False, null=False, blank=True)

@@ -28,6 +28,7 @@ INSTALLED_APPS = [
     'store_app',
     'subscription_app',
     'user_app',
+    'debug_toolbar',
     'rest_framework',
 ]
 
@@ -39,6 +40,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'backend_catalog_store.urls'
@@ -108,7 +110,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = BASE_DIR / 'static'
 
 # Media files configuration
 MEDIA_URL = '/media/'
@@ -119,4 +120,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# ips permitidas para debuguear las consultas
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    # ...
+]

@@ -6,6 +6,7 @@ from store_app.models.BusinessModel import BusinessModel
 
 
 class BusinessView(APIView):
+    #Mostrar todo los negocios
     def get(self, request):
         try:
             business = BusinessModel.objects.all()
@@ -16,6 +17,7 @@ class BusinessView(APIView):
         
         return Response(data=business_serializer.data, status=status.HTTP_200_OK)
     
+    #Crear un negocio
     def post(self, request):
         try:
             business_deserializer = BusinessSerializer(data=request.data)
@@ -62,3 +64,5 @@ class BusinessViewDetail(APIView):
         except Exception as e:
             return Response(data={'response':str(e)}, status=status.HTTP_400_BAD_REQUEST)
         
+
+
