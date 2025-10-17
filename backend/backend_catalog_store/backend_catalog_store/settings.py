@@ -30,9 +30,11 @@ INSTALLED_APPS = [
     'user_app',
     'debug_toolbar',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -126,3 +128,11 @@ INTERNAL_IPS = [
     "127.0.0.1",
     # ...
 ]
+
+CORS_ALLOW_HEADERS = [
+    'authorization',
+    'content-type',
+    'x-csrftoken',
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
