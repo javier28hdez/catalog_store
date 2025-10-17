@@ -6,6 +6,7 @@ class BusinessSerializer(serializers.ModelSerializer):
     class Meta:
         model = BusinessModel
         fields =[
+            'id_business',
             'name',
             'email_business',
             'address',
