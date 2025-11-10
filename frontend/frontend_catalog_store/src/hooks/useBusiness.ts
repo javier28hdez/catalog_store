@@ -31,5 +31,5 @@ export function useBusiness(){
         fetchBusiness();
     },[])
 
-    return {business, error, loading, setBusiness}
+    return {business, error, loading}
 }

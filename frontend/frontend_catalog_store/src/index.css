@@ -1,5 +1,16 @@
 @import "tailwindcss";
-/*@layer theme, base, components, utilities;
-@import "tailwindcss/theme.css" layer(theme);
-@import "tailwindcss/preflight.css" layer(base);
-@import "tailwindcss/utilities.css" layer(utilities);*/
+
+@layer base {
+  body {
+    @apply bg-gray-50;
+  }
+  
+  /* Paleta de colores consistente con Flowbite NavBar/Footer */
+  :root {
+    --primary-color: #1d4ed8; /* blue-700 */
+    --text-primary: #111827; /* gray-900 */
+    --text-secondary: #6b7280; /* gray-500 */
+    --bg-primary: #ffffff; /* white */
+    --bg-secondary: #f9fafb; /* gray-50 */
+  }
+}

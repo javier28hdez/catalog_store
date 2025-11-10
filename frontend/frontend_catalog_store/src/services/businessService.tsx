@@ -8,7 +8,7 @@ export const businessService = {
     const response = await fetch(urlBusiness);
 
     if(!response.ok){
-        throw new Error("Ocurrio un error")
+        throw new Error("Ocurrio un error al mostrar los negocios")
     }
 
     const data = await response.json()
