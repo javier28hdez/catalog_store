@@ -1,10 +1,10 @@
 import type { ProductProps } from '../../interfaces/productInterface'
 import { Link } from 'react-router-dom'
 
-function CardProduct({ name, description, img_product, price, stock, moneda }: ProductProps) {
+function CardProduct({ id_product, id_business, name, description, img_product, price, stock, moneda }: ProductProps) {
   return (
     <div className="flex flex-col gap-1">
-      <Link to='/negocios/:id/productos/:id_prod'>
+      <Link to={`/negocios/${id_business}/productos/${id_product}`}>
         <div className='group relative'>
           <img src={`http://localhost:8000/${img_product}`} alt={name} title={description} className='aspect-square w-full rounded-md bg-gray-200 object-cover group-hover:opacity-75 lg:aspect-auto lg:h-80' />
         </div>

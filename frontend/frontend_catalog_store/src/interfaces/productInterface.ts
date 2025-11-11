@@ -1,5 +1,8 @@
+import type { CategoryData } from "./categoryInterface";
+
 export interface Product{
     id_product: number,
+    category: CategoryData ,
     //"id_business": 6,
     name: string,
     description: string,
@@ -12,6 +15,8 @@ export interface Product{
 }
 
 export interface ProductProps{
+    id_product: string | number,
+    id_business: string,
     name: string,
     description: string,
     img_product: string | File;

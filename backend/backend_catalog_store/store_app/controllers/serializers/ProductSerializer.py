@@ -4,7 +4,7 @@ from store_app.models.CategoryProductModel import CategoryProductModel
 from store_app.controllers.serializers.CategoryProductSerializer import CategoryProductSerializer
 
 class ProductSerializer(serializers.ModelSerializer):
-    id_category_product = CategoryProductSerializer(read_only=True)
+    category = CategoryProductSerializer(source='id_category_product', read_only=True)
 
     class Meta:
         model = ProductModel
@@ -19,7 +19,7 @@ class ProductSerializer(serializers.ModelSerializer):
             'is_available',
             'tags',
             'moneda',
-            'id_category_product',
+            'category'
         ]
         read_only_fields = ['is_available', 'created_at', 'update_at']
 

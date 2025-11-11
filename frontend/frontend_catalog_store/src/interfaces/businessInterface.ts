@@ -1,6 +1,7 @@
 export interface BusinessData{
     id_business: string
     name: string,
+    eslogan: string,
     email_business: string,
     telephone: string,
     description: string,
@@ -10,7 +11,9 @@ export interface BusinessData{
 }
 
 export interface BusinessProps{
+    id_business: string | number,
     name: string,
+    eslogan: string,
     description: string,
     img_url: string,
 }

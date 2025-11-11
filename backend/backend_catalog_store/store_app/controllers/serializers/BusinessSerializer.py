@@ -8,6 +8,7 @@ class BusinessSerializer(serializers.ModelSerializer):
         fields =[
             'id_business',
             'name',
+            'eslogan',
             'email_business',
             'address',
             'telephone',

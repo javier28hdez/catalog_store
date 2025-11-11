@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { businessService } from "../services/businessService";
-import type { Business } from "../interfaces/businessInterface";
+import type { BusinessData } from "../interfaces/businessInterface";
 
 type ErrorType = Error | null;
 
 export function useBusiness(){
 
-    const [business, setBusiness] = useState<Business[]>([]);
+    const [business, setBusiness] = useState<BusinessData[]>([]);
     const [error, setError] = useState<ErrorType>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
