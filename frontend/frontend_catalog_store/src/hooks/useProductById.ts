@@ -1,31 +1,31 @@
 import { useEffect, useState } from "react";
-import type { Product } from "../interfaces/productInterface";
 import { productServices } from "../services/productService";
+import type { Product } from "../interfaces/productInterface";
 
 type ErrorType = Error | null;
 
-export function useAllProduct(id_business: string | undefined){
-    const [products, setProducts] = useState<Product[]>([]);
+export function useProductById(id_product: string | undefined){
+    const [product, setProduct] = useState<Product>();
     const [error, setError] = useState<ErrorType>(null);
     const [loading, setLoading] = useState<boolean>(false);
 
     useEffect(()=>{
-        const fetchProduct = async(id_business: string | undefined)=>{
+        const fetchProduct = async(id_product: string | undefined)=>{
                 try{
                     setLoading(true);
                     setError(null);
 
-                    const data = await productServices.getProduct(id_business);
+                    const data = await productServices.getProductById(id_product);
 
-                    setProducts(data);
+                    setProduct(data);
                 }catch(err){
                     setError(err as Error);
                 }finally{
                     setLoading(false);
                 }
             }
-            fetchProduct(id_business)
-        }, [id_business])
+            fetchProduct(id_product)
+        }, [id_product])
         
-        return {products, error, loading}
+        return {product, error, loading}
 }

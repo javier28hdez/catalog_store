@@ -2,7 +2,8 @@ from django.db import models
 
 class BusinessModel(models.Model):
     id_business = models.BigAutoField(primary_key=True, unique=True)
-    name = models.CharField(max_length=100, unique=True, null=False, blank=False)
+    name = models.CharField(max_length=70, unique=True, null=False, blank=False)
+    eslogan = models.CharField(max_length=150,null=True, blank=True)
     email_business = models.EmailField(max_length=254)
     address = models.CharField(max_length=255, unique=False, null=False, blank=False)
     telephone = models.CharField(max_length=8)

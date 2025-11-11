@@ -20,9 +20,9 @@ function Business() {
           {(loading) ? <div>Cargando</div> : null}
           {(error) ? <div>{error.message}</div> : null}
           {filteredBusiness.length === 0 ? business.map((value) =>
-            <CardBusiness key={value.id_business} name={value.name} img_url={value.img_business} description={value.description} />
+            <CardBusiness key={value.id_business} id_business={value.id_business} name={value.name} eslogan={value.eslogan} img_url={value.img_business} description={value.description} />
           ) : filteredBusiness.map((value) =>
-            <CardBusiness key={value.id_business} name={value.name} img_url={value.img_business} description={value.description} />
+            <CardBusiness key={value.id_business} id_business={value.id_business} name={value.name} eslogan={value.eslogan} img_url={value.img_business} description={value.description} />
           )}
         </section>
       </main>

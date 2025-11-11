@@ -47,7 +47,7 @@ class ProductViewDetail(APIView):
             if product_serializer.data is None:
                 return Response(data={'response':'not exist this products on this business'}, status=status.HTTP_404_NOT_FOUND)
 
-            return Response(data={product_serializer.data}, status=status.HTTP_200_OK)
+            return Response(data=product_serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
             return Response(data={'response':str(e)}, status=status.HTTP_400_BAD_REQUEST)
     

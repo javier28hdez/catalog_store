@@ -5,7 +5,6 @@
     @apply bg-gray-50;
   }
   
-  /* Paleta de colores consistente con Flowbite NavBar/Footer */
   :root {
     --primary-color: #1d4ed8; /* blue-700 */
     --text-primary: #111827; /* gray-900 */

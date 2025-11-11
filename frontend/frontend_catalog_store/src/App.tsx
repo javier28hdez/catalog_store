@@ -13,9 +13,9 @@ function App() {
     <Routes>
       <Route path='/negocios' element={<BusinessLayout />}>
         <Route index element={<Business />} />
-        <Route path=':id/productos' element={<ProductByBusinessLayout />}>
+        <Route path=':id_business/productos' element={<ProductByBusinessLayout />}>
           <Route index path='' element={<ProductByBusiness />} />
-          <Route path=':id_prod' element={<ProductDetailPage />} />
+          <Route path=':id_product' element={<ProductDetailPage />} />
         </Route>
       </Route>
       <Route path='*' element={<NotFound />} />
