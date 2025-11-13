@@ -3,6 +3,7 @@ import CardBusiness from "../../components/CardBusiness/CardBusiness"
 import InputSearch from "../../components/InputSearch/InputSearch"
 import { useBusiness } from "../../hooks/useBusiness"
 import type { BusinessData } from "../../interfaces/businessInterface"
+import ButtonModal from "../../components/ButtonModal/ButtonModal"
 
 
 function Business() {
@@ -14,6 +15,7 @@ function Business() {
     <>
       <main className="flex flex-col m-auto w-6/8 mt-8 gap-6">
         <InputSearch arrayFilter={business} elementByFilter={"name"} setFilteredBusiness={setFilteredBusiness} />
+        <ButtonModal />
         <h1 className="text-2xl font-semibold font-sans">Negocios:</h1>
         <section className="grid grid-cols-5 gap-3 place-content-around">
 

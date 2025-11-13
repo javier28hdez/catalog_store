@@ -6,6 +6,7 @@ import NotFound from './pages/NotFound/NotFound'
 import ProductDetailPage from './pages/ProductDetail/ProductDetailPage'
 import BusinessLayout from './layouts/BusinessLayout/BusinessLayout'
 import ProductByBusinessLayout from './layouts/ProductByBusinessLayout/ProductByBusinessLayout'
+import FormBusiness from './components/Forms/FormBusiness'
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route path=':id_product' element={<ProductDetailPage />} />
         </Route>
       </Route>
+      <Route path='/form' element={<FormBusiness />} />
       <Route path='*' element={<NotFound />} />
     </Routes>
   )
