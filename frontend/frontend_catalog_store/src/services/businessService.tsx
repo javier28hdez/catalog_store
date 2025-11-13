@@ -15,6 +15,18 @@ export const businessService = {
 
     return data as BusinessData[];
   },
+
+  getBusinessById: async (id_business: string | undefined) => {
+    const response = await fetch(`${urlBusiness}${id_business}/`)
+
+    if (!response.ok) {
+      throw new Error("Ocurrio un error al mostrar los negocios")
+    }
+
+    const data = await response.json()
+
+    return data as BusinessData;
+  }
   /*
   createUser: async (userData) => {
     const response = await fetch('/api/users', {

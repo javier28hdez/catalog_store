@@ -1,18 +1,20 @@
 import { Link, useParams } from "react-router-dom";
 import CardProduct from "../../components/CardProduct/CardProduct"
 import { useAllProduct } from "../../hooks/useAllProduct";
+import { useBusinessById } from "../../hooks/useBusinessById";
 
 function ProductByBusiness() {
   const { id_business } = useParams();
   const { products, error, loading } = useAllProduct(id_business);
+  const { business } = useBusinessById(id_business)
 
   return (
     <>
       <main className="flex flex-col m-auto w-6/8 ">
         <section className="flex flex-col mt-8">
-          <h1 className="font-bold text-3xl">Crafted Creations</h1>
-          <span className="text-[var(--text-secondary)] mt-0.5">Slogan del Negocio</span>
-          <p className="my-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem mollitia aspernatur dolorum velit numquam debitis quos ut molestias quam aut, blanditiis dignissimos illum voluptate reprehenderit! Perferendis repellendus voluptate iste? Ipsam.</p>
+          <h1 className="font-bold text-3xl">{business?.name}</h1>
+          <span className="text-[var(--text-secondary)] mt-0.5">{business?.eslogan}</span>
+          <p className="my-5">{business?.description}</p>
         </section>
         <section className="flex flex-col">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900">Products:</h2>
