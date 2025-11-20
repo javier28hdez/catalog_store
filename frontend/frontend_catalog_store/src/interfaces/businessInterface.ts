@@ -1,5 +1,5 @@
 export interface BusinessData{
-    id_business: string
+    id_business: string, 
     name: string,
     eslogan: string,
     email_business: string,
@@ -16,4 +16,18 @@ export interface BusinessProps{
     eslogan: string,
     description: string,
     img_url: string,
+}
+
+export interface BusinessFormData{
+    name: string,
+    eslogan: string,
+    email_business: string,
+    address: string,
+    telephone: string,
+    description: string,
+    img_business: File,
+}
+
+export interface BusinessFormProps{
+    onSuccess: () => void;
 }
