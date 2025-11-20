@@ -6,22 +6,24 @@ import NotFound from './pages/NotFound/NotFound'
 import ProductDetailPage from './pages/ProductDetail/ProductDetailPage'
 import BusinessLayout from './layouts/BusinessLayout/BusinessLayout'
 import ProductByBusinessLayout from './layouts/ProductByBusinessLayout/ProductByBusinessLayout'
-import FormBusiness from './components/Forms/FormBusiness'
+import { Toaster } from 'react-hot-toast'
 
 function App() {
 
   return (
-    <Routes>
-      <Route path='/negocios' element={<BusinessLayout />}>
-        <Route index element={<Business />} />
-        <Route path=':id_business/productos' element={<ProductByBusinessLayout />}>
-          <Route index path='' element={<ProductByBusiness />} />
-          <Route path=':id_product' element={<ProductDetailPage />} />
+    <>
+      <Toaster position="top-center" />
+      <Routes>
+        <Route path='/negocios' element={<BusinessLayout />}>
+          <Route index element={<Business />} />
+          <Route path=':id_business/productos' element={<ProductByBusinessLayout />}>
+            <Route index path='' element={<ProductByBusiness />} />
+            <Route path=':id_product' element={<ProductDetailPage />} />
+          </Route>
         </Route>
-      </Route>
-      <Route path='/form' element={<FormBusiness />} />
-      <Route path='*' element={<NotFound />} />
-    </Routes>
+        <Route path='*' element={<NotFound />} />
+      </Routes>
+    </>
   )
 }
 

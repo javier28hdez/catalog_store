@@ -21,7 +21,6 @@ class BusinessView(APIView):
     def post(self, request):
         try:
             business_deserializer = BusinessSerializer(data=request.data)
-
             if business_deserializer.is_valid():
                 business_deserializer.save()
                 return Response(data={'data':business_deserializer.data, 'message':'Business created successfully'}, status=status.HTTP_201_CREATED)

@@ -26,13 +26,22 @@ export const businessService = {
     const data = await response.json()
 
     return data as BusinessData;
+  },
+
+  postBusiness: async (formData: FormData) => {
+    try {
+      const response = await fetch(`${urlBusiness}`, {
+        method: 'POST',
+        body: formData
+      });
+
+      if (!response.ok) throw new Error('Error: ' + response.status);
+
+      await response.json();
+      return response;
+    } catch (error) {
+      console.error('Error:', error);
+      throw error;
+    }
   }
-  /*
-  createUser: async (userData) => {
-    const response = await fetch('/api/users', {
-      method: 'POST',
-      body: JSON.stringify(userData)
-    });
-    return response.json();
-  }*/
 };
