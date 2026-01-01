@@ -18,7 +18,6 @@ export const businessService = {
 
   getBusinessById: async (id_business: string | undefined) => {
     const response = await fetch(`${urlBusiness}${id_business}/`)
-
     if (!response.ok) {
       throw new Error("Ocurrio un error al mostrar los negocios")
     }
@@ -26,22 +25,18 @@ export const businessService = {
     const data = await response.json()
 
     return data as BusinessData;
+
   },
 
   postBusiness: async (formData: FormData) => {
-    try {
-      const response = await fetch(`${urlBusiness}`, {
-        method: 'POST',
-        body: formData
-      });
+    const response = await fetch(`${urlBusiness}`, {
+      method: 'POST',
+      body: formData
+    });
 
-      if (!response.ok) throw new Error('Error: ' + response.status);
+    if (!response.ok) throw new Error('Error: ' + response.status);
 
-      await response.json();
-      return response;
-    } catch (error) {
-      console.error('Error:', error);
-      throw error;
-    }
+    await response.json();
+    return response;
   }
 };

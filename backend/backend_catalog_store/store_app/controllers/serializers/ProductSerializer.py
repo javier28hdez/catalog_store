@@ -41,9 +41,7 @@ class ProductPostSerializer(serializers.ModelSerializer):
         ]
         read_only_fields = ['is_available', 'created_at', 'update_at']
 
-        def create(self, validated_data):
-            category_data = validated_data.pop('id_category_product')
-            product = ProductModel.objects.create(**validated_data)
-            category = CategoryProductModel.objects.create(**category_data)
-
-            return product
+class ProductToggleSerializar(serializers.ModelSerializer):
+    class Meta:
+        model = ProductModel
+        fields = ['is_available']

@@ -10,7 +10,7 @@ interface InputSearchProps {
 
 function InputSearch({ arrayFilter, elementByFilter, setFilteredBusiness }: InputSearchProps) {
   return (
-    <div className="flex flex-row bg-gray-50 border border-gray-300 rounded-lg">
+    <div className="flex flex-row w-19/20 bg-gray-50 border border-gray-300 rounded-lg">
       <span className="absolute py-2 px-1">
         <LoopIcons />
       </span>

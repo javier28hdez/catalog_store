@@ -1,3 +1,4 @@
+from datetime import timedelta
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -25,12 +26,17 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
+    'corsheaders',
+    #configuraciones de jwt
+    'rest_framework_simplejwt',
+    'rest_framework_simplejwt.token_blacklist',
+    #app del sistema
     'store_app',
     'subscription_app',
     'user_app',
+    #devtools
     'debug_toolbar',
-    'rest_framework',
-    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -64,6 +70,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend_catalog_store.wsgi.application'
+
+AUTH_USER_MODEL = 'user_app.AccountModel'
 
 
 # Database
@@ -135,4 +143,24 @@ CORS_ALLOW_HEADERS = [
     'x-csrftoken',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",
+]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ]
+}
+
+SIMPLE_JWT = {
+    'ROTATE_REFRESH_TOKENS': True
+}
+
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+}
