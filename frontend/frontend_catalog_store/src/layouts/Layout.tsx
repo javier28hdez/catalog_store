@@ -1,4 +1,4 @@
-import Footer from "@/components/Footer/Footer"
+//import Footer from "@/components/Footer/Footer"
 import NavBar from "@/components/NavBar/NavBar"
 import { Outlet } from "react-router-dom"
 
@@ -7,7 +7,7 @@ function Layout() {
         <>
             <NavBar />
             <Outlet />
-            <Footer />
+            {/*<Footer />*/}
         </>
     )
 }
