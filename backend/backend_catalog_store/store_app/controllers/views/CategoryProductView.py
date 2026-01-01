@@ -9,23 +9,29 @@ class CategoryProductListByBusinessView(APIView):
     #Devuelve la lista de categorias de productos de un negocio 
     def get(self, request, id_business):
         try:
-            BusinessModel.objects.get(id_business=id_business)
-
-        except Exception as e:
-            return Response(data={'response':'business nos found or nos exist'}, status=status.HTTP_404_NOT_FOUND)
-
+            business = BusinessModel.objects.get(id_business=id_business)
+        except BusinessModel.DoesNotExist:
+            return Response(
+                data={'response': 'business not found'}, 
+                status=status.HTTP_404_NOT_FOUND
+            )
+        
         try:
-            category_product = CategoryProductModel.objects.filter(products__id_business=id_business).distinct()
-
-            category_product_serializer = CategoryProductSerializer(category_product, many=True)
-
-            if category_product_serializer is None:
-                return Response(data={'response':'not exist'}, status=status.HTTP_404_NOT_FOUND)
-            
-            return Response(data=category_product_serializer.data, status=status.HTTP_200_OK)
-
+            categories = CategoryProductModel.objects.filter(
+                id_business=business
+            )
+        
+            serializer = CategoryProductSerializer(categories, many=True)
+        
+            return Response(
+                data=serializer.data, 
+                status=status.HTTP_200_OK
+            )
         except Exception as e:
-            return Response(data={'response':str(e)}, status=status.HTTP_400_BAD_REQUEST)
+            return Response(
+                data={'response': str(e)}, 
+                status=status.HTTP_400_BAD_REQUEST
+            )
 
 class CategoryProductPostView(APIView):
     #Crea una categoria de un producto

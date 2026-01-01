@@ -13,7 +13,7 @@ function CardProduct({ id_product, id_business, name, description, img_product, 
           <span className='text-sm font-medium text-gray-900 text-right'>
             {price} {moneda}
           </span>
-          <span className='col-span-2 text-xs font-extralight'>Cantidad: {stock}</span>
+          <span className='col-span-2 text-xs font-medium'>Cantidad: {stock}</span>
         </div>
       </Link>
     </div>

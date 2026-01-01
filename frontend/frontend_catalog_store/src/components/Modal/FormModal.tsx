@@ -1,7 +1,7 @@
-import type { ModalProps } from "../../interfaces/modalInterface";
+import type { FormModalProps } from "../../interfaces/modalInterface";
 
 
-function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalProps) {
+function FormModal({ isOpen, onClose, title, children, size = 'md' }: FormModalProps) {
     if (!isOpen) return null;
 
     const sizeClasses = {
@@ -12,8 +12,8 @@ function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalProps) {
     };
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center overflow-y-auto overflow-x-hidden bg-black bg-opacity-50">
-            <div className={`relative p-4 w-full ${sizeClasses[size]} max-h-full `}>
+        <div className="fixed inset-0 z-40 flex items-center justify-center overflow-y-auto bg-black bg-opacity-50">
+            <div className={`relative p-4 w-full ${sizeClasses[size]} max-h-full z-50`}>
                 <div className="relative rounded-lg shadow bg-[var(--bg-secondary)]">
                     <div className="flex items-center justify-between p-4 md:p-5 border-b border-gray-200">
                         <h3 className="text-xl font-semibold text-gray-900">
@@ -40,6 +40,6 @@ function Modal({ isOpen, onClose, title, children, size = 'md' }: ModalProps) {
     );
 }
 
-export default Modal;
+export default FormModal;
 
 

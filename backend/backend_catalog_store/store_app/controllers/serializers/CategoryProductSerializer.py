@@ -8,5 +8,6 @@ class CategoryProductSerializer(serializers.ModelSerializer):
             'id_category_product',
             'category_name',
             'description',
+            'id_business'
         ]
         fields_only_read=['id_category_product']

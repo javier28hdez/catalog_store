@@ -3,7 +3,7 @@ from django.urls import path, include
 from store_app.controllers.views.BusinessView import BusinessView, BusinessViewDetail
 from store_app.controllers.views.CategoryBusinessView import CategoryBusinessView, CategoryBusinessViewDetail
 from store_app.controllers.views.CategoryProductView import CategoryProductListByBusinessView, CategoryProductPostView, CategoryProductViewDetail
-from store_app.controllers.views.ProductView import ProductView, ProductViewDetail
+from store_app.controllers.views.ProductView import ProductView, ProductViewDetail, ProductToggleActiveView
 
 urlpatterns = [
     #Negocios
@@ -17,6 +17,7 @@ urlpatterns = [
     #Productos
     path('<int:id_business>/product/', ProductView.as_view(), name='product'),
     path('product/<int:id>/', ProductViewDetail.as_view(), name='product-detail'),
+    path('product/<int:id>/toggle/', ProductToggleActiveView.as_view(), name='product-toggle'),
 
 
     #Categorias de los productos

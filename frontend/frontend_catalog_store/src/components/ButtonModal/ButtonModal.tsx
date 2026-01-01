@@ -1,24 +1,15 @@
-import { useState } from "react";
-import { PlusAdd } from "../Icons/Icons"
-import Modal from "../Modal/Modal";
-import FormBusiness from "../Forms/FormBusiness";
+import type { ButtonModalProps } from "../../interfaces/buttonModalInterface";
 
-function ButtonModal() {
-    const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const onSuccess = () => {
-        setIsOpen(false);
-    }
+
+function ButtonModal({ buttonText, isOpen, setIsOpen, icon }: ButtonModalProps) {
 
     return (
         <>
-            <button className="bg-sky-500 w-9 h-8.5 place-items-center rounded-md cursor-pointer absolute top-24 right-22" onClick={() => setIsOpen(!isOpen)} >
-                <PlusAdd />
+            <button className="flex flex-row bg-sky-500 w-8 h-8 place-items-center justify-center rounded-md cursor-pointer" onClick={() => setIsOpen(!isOpen)} >
+                {icon}
+                <span className="text-color-white pb-1">{buttonText}</span>
             </button>
-
-            <Modal isOpen={isOpen} onClose={() => setIsOpen(false)} title="Agregar Negocio" size="md">
-                <FormBusiness onSuccess={onSuccess} />
-            </Modal>
         </>
     )
 }
